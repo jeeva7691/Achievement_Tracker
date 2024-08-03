@@ -1,0 +1,33 @@
+  <!-- 4th isok -->
+  <div class="sidenav" [class.collapsed]="isCollapsed">
+    <div class="sidenav-header">
+      <img src="assets/logo.jpg" alt="Logo" class="logo">
+      <span *ngIf="!isCollapsed"></span>
+    </div>
+    <ul>
+      <li>
+        <a routerLink="/AchievementDashboard" routerLinkActive="active">
+          <i class="material-icons">home</i>
+          <span *ngIf="!isCollapsed">Home</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/AddAchievement" routerLinkActive="active">
+          <i class="material-icons">add_circle</i>
+          <span *ngIf="!isCollapsed">Add Achievement</span>
+        </a>
+      </li>
+    </ul>
+    <div class="sidenav-footer">
+      <button (click)="toggleCollapse()">
+        <i class="material-icons" *ngIf="!isCollapsed">chevron_left</i>
+        <i class="material-icons" *ngIf="isCollapsed">chevron_right</i>
+        <span *ngIf="!isCollapsed">Collapse</span>
+      </button>
+    </div>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  
+  

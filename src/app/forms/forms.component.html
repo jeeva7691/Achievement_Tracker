@@ -1,0 +1,30 @@
+<div class="popup-overlay" (click)="closePopup()"></div>
+<div class="popup-container">
+  <h2>Add Achievement</h2>
+  <form [formGroup]="achievementForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="date">Date of Achievement:</label>
+      <input id="date" formControlName="date" type="date">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Achievement Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="reason">Why You Felt It Is an Achievement:</label>
+      <textarea id="reason" formControlName="reason"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="attachments">Attachments:</label>
+      <input id="attachments" formControlName="attachments" type="file" (change)="onFileChange($event)" multiple>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit"  (click)="onSubmit()">Submit</button>
+      <button type="button" routerLink="/AchievementDashboard">Cancel</button>
+    </div>
+  </form>
+</div>

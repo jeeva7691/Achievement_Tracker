@@ -1,0 +1,20 @@
+<div class="dashboard">
+    <h1>Achievements</h1>
+    <div class="card-container">
+      <div class="card" *ngFor="let achievement of achievements">
+        <div class="card-header">
+          <span class="date">{{ achievement.date | date }}</span>
+        </div>
+        <div class="card-body">
+          <h3>{{ achievement.description }}</h3>
+          <p>{{ achievement.reason }}</p>
+          <div class="attachments">
+            <div *ngFor="let attachment of achievement.attachments" class="attachment">
+              <img *ngIf="isImage(attachment)" [src]="attachment" alt="Attachment">
+              <span *ngIf="!isImage(attachment)">{{ getFileName(attachment) }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
