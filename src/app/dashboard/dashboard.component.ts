@@ -10,11 +10,13 @@ import { ApiList } from '../variables/apiList';
 export class DashboardComponent {
 
   achievements!:any[]
+  achievements2!:any | unknown[]
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
   this.getAchievements()
+  this.getAchievementsFromBE()
   }
 
 
@@ -24,8 +26,14 @@ export class DashboardComponent {
       this.achievements = data;
       console.log('achievements',this.achievements)
     });
+  }
 
-    
+  getAchievementsFromBE()
+  {
+    this.apiService.Get(ApiList.getAchievements).subscribe(data => {
+      this.achievements2 = data;
+      console.log('achievements',this.achievements)
+    });
   }
 
   isImage(url: string): boolean {

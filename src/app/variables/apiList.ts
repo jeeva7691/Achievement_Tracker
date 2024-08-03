@@ -1,3 +1,3 @@
 export enum ApiList {
-  getAchievements=''
+  getAchievements='/achievements'
 }
